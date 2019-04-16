@@ -18,12 +18,23 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 100
     }
 
     // MARK: - Location Delegates
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        for currentLocation in locations{
+           
+            let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude), radius: 100, identifier: "Fencing")
+            
+            locationManager.startMonitoring(for: geoFenceRegion)
+        }
         
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
