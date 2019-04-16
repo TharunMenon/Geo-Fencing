@@ -39,9 +39,12 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
        
+        print("Entered in the location: \(region.identifier)")
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+        print("Exited from the location: \(region.identifier)")
         
     }
 
