@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,CLLocationManagerDelegate {
 
+    let locationManager:CLLocationManager = CLLocationManager()
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    // MARK: - Location Delegates
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+       
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+    }
+
+    
 
 }
 
